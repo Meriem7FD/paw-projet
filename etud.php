@@ -26,21 +26,21 @@
 
     <main>
         <section class="portails">
-            <div class="left">
+            <div class="portail left">
                 <h2>DEMANDE DE DOCUMENTS</h2>
                 <p>Sur notre site internet, les étudiants ont la possibilité de faire des demandes de documents officiels en toute simplicité. 
                     Qu'il s'agisse d'attestations, de relevés de notes ou d'autres documents administratifs, il suffit de se connecter à l'espace 
                     étudiant, de remplir le formulaire dédié et de soumettre la demande. Notre plateforme garantit une prise en charge rapide et 
                     efficace pour répondre aux besoins des étudiants.</p>
             </div>
-            <div class="center">
+            <div class="portail center">
                 <h2>SUIVI DES DEMANDES</h2>
                 <p>Notre site internet permet aux étudiants de suivre l’état de leurs demandes de documents en temps réel. Après avoir soumis une 
                     demande, ils peuvent accéder à leur espace étudiant pour consulter le statut de traitement, qu’il s’agisse d’une demande en cours,
                      validée ou prête à être récupérée. Cette fonctionnalité assure transparence et efficacité, tout en facilitant la communication 
                      avec l’administration.</p>
             </div>
-            <div class="right">
+            <div class="portail right">
                 <h2>PRISE DE CONTACT DIRECTE</h2>
                 <p>Notre site internet offre aux étudiants une fonctionnalité pratique pour prendre contact directement avec l’université. Grâce à 
                     l’espace dédié, ils peuvent poser leurs questions, signaler des problèmes ou obtenir des informations supplémentaires concernant 
