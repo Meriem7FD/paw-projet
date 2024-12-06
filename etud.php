@@ -31,22 +31,30 @@
                 <p>Sur notre site internet, les étudiants ont la possibilité de faire des demandes de documents officiels en toute simplicité. 
                     Qu'il s'agisse d'attestations, de relevés de notes ou d'autres documents administratifs, il suffit de se connecter à l'espace 
                     étudiant, de remplir le formulaire dédié et de soumettre la demande. Notre plateforme garantit une prise en charge rapide et 
-                    efficace pour répondre aux besoins des étudiants.</p>
+                    efficace pour répondre aux besoins des étudiants.
+                </p>
             </div>
             <div class="portail center">
                 <h2>SUIVI DES DEMANDES</h2>
                 <p>Notre site internet permet aux étudiants de suivre l’état de leurs demandes de documents en temps réel. Après avoir soumis une 
                     demande, ils peuvent accéder à leur espace étudiant pour consulter le statut de traitement, qu’il s’agisse d’une demande en cours,
-                     validée ou prête à être récupérée. Cette fonctionnalité assure transparence et efficacité, tout en facilitant la communication 
-                     avec l’administration.</p>
+                    validée ou prête à être récupérée. Cette fonctionnalité assure transparence et efficacité, tout en facilitant la communication 
+                    avec l’administration.
+                </p>
             </div>
             <div class="portail right">
                 <h2>PRISE DE CONTACT DIRECTE</h2>
                 <p>Notre site internet offre aux étudiants une fonctionnalité pratique pour prendre contact directement avec l’université. Grâce à 
                     l’espace dédié, ils peuvent poser leurs questions, signaler des problèmes ou obtenir des informations supplémentaires concernant 
-                    leurs demandes. Une équipe est à leur disposition pour répondre rapidement et leur fournir l’assistance nécessaire.</p>
+                    leurs demandes. Une équipe est à leur disposition pour répondre rapidement et leur fournir l’assistance nécessaire. Pour ce faire, 
+                    les informations se trouvent en bas.
+                </p>
             </div>
+        </section>
 
+        <section class="location">
+            <br> <img src="map" alt="">
+            <p>Département d'Informatique, UMBB. QF2C+M3H, Boumerdes 35000</p>
         </section>
     </main>
 
