@@ -12,7 +12,19 @@ body{
 header{
     height: 15%;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color: paleturquoise;
+}
+
+.hcenter button{
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: darkgreen;
+    color: #fff;
+    cursor: pointer;
 }
 
 main{
