@@ -52,10 +52,53 @@
             </div>
         </section>
 
-        <section class="location">
-            <br> <img src="map" alt="">
-            <p>Département d'Informatique, UMBB. QF2C+M3H, Boumerdes 35000</p>
-        </section>
+        <div class="qst">
+            <h1>Les questions les plus posées</h1>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Comment accéder au portail étudiant?
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Si vous avez déja un compte: il vous faudra insérer votre matricule et votre mot de passe introduit
+                        précédemment. Si ce n'est pas déja fait, que vous étes probablement nouveau ou que vous n'avez juste pas crée de compte, cliquez
+                        sur s'inscrire et entrez vos informations.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Ou trouver mes informations personnelles?
+                    </button>
+                  </h2>
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Aprés vous étre connecté sur le site, vos informations se trouverons en haut a gauche de l'écran. Il
+                        suffit de cliquer sur le petit bonhomme et vos informations s'afficherons.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Que dois-je faire si ma demande est refusée?
+                    </button>
+                  </h2>
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Si votre demande a été refusée, c'est qu'il y a probablement une bonne raison pour cela. Veuillez donc 
+                        vous rendre au service administratif de l'université pour obtenir plus d'informations sur la raison.
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <!-- <div class="location"> -->
+            <h1 class="location">Notre localisation</h1>
+            <img class="imag" src="map.PNG" alt="">
+            <p class="parloc">Département d'Informatique, UMBB. QF2C+M3H, Boumerdes 35000</p>
+        <!-- </div> -->
     </main>
 
     <footer>
