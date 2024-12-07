@@ -14,7 +14,7 @@
         <i class="fa-solid fa-user"></i>
         </div>
         <div class="hcenter">
-            <button>Effectuer une demande</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#demandeModal"> Effectuer une demande</button>
             <button>Voir l'etat des demandes</button>
         </div>
         <div class="hright">
@@ -23,6 +23,36 @@
             </form>
         </div>
     </header>
+
+    <!-- Modale pour la demande de document -->
+    <div  class="modal fade" id="demandeModal" tabindex="-1" aria-labelledby="demandeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="demandeModalLabel">Sélectionner un type de document</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulaire pour la demande de document -->
+                    <form method="POST" action="">
+                        <div class="form-group">
+                            <label for="type_document">Sélectionner le type de document</label>
+                            <select class="form-control" id="type_document" name="type_document" required>
+                                <option value="">Choisir...</option>
+                                <?php foreach ($typesDocuments as $document): ?>
+                                    <option value="<?= htmlspecialchars($document); ?>"><?= htmlspecialchars($document); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-success">Faire une demande</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main>
         <section class="portails">
@@ -53,7 +83,7 @@
         </section>
 
         <div class="qst">
-            <h1>Les questions les plus posées</h1>
+            <h1>Les questions fréquentes</h1>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                   <h2 class="accordion-header">
