@@ -6,6 +6,7 @@
 body{
     height: 100%;
     width: 100%;
+    overflow: auto;
 }
 
 header{
@@ -31,11 +32,11 @@ header{
 }
 
 main{
-    height: 70%;
+    min-height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: magenta;
+    min-height: calc(100vh - 20vh); /* Enlève les hauteurs du header et footer */
 }
 
 .portails {
@@ -44,7 +45,8 @@ main{
     align-items: center; 
     gap: 20px; 
     margin-top: 20px;
-    height: 90%;
+    margin-bottom: 20px;
+    height: auto;
     width: 100%;
 }
 
@@ -76,17 +78,44 @@ main{
     line-height: 1.5;
 }
 
+.qst{
+    height: auto;
+    width: 70%;
+    margin-left: 15%;
+    background-image: url("./nuanceV.jpg");
+    border-radius: 20px;
+    border: 1px solid darkgreen;
+    margin-bottom: 20px;
+}
+
+.qst h1{
+    padding-left: 20%;
+    color: #fff;
+}
+
 .location{
     height: 40%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: monospace;
 }
 
-.location img{
-    width: 200px;
-    height: 90px;
+.imag{
+    height: 200%;
+    width: 50%;
+    object-fit: cover;
+    margin-left: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parloc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -105,11 +134,7 @@ footer p{
 
 footer a{
     display: flex;
-    background-color: #333;
-    color: #fff;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
+    color: #fff;
 
 }
