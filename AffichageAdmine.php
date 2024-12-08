@@ -1,29 +1,21 @@
 <?php
 require_once 'Database.php';
+require_once 'Demande.php';
 
-$db = new Database();
-$conn = $db->connect();
-
+$demande = new Demande();
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_statut'])) {
     $iddoc = $_POST['iddoc'];
     $new_statut = $_POST['statut'];
-
-    $sql = "UPDATE demande SET statut = :statut WHERE iddoc = :iddoc";
-    $stmt = $conn->prepare($sql);
-
-    try {
-        $stmt->execute([':statut' => $new_statut, ':iddoc' => $iddoc]);
-        $message = "Statut mis à jour avec succès.";
-    } catch (PDOException $e) {
-        $message = "Erreur lors de la mise à jour : " . $e->getMessage();
-    }
+    $message = $demande->updateStatut($iddoc, $new_statut);
 }
 
 $searchQuery = '';
 $filterStatut = '';
 $filterTypeDoc = '';
+$orderBy = isset($_GET['order_by']) ? $_GET['order_by'] : 'iddoc';
+$orderType = isset($_GET['order_type']) ? $_GET['order_type'] : 'ASC';
 
 if (isset($_GET['search'])) {
     $searchQuery = $_GET['search'];
@@ -35,45 +27,7 @@ if (isset($_GET['filter_type'])) {
     $filterTypeDoc = $_GET['filter_type'];
 }
 
-$sql = "SELECT d.iddoc, d.ide, e.nom, e.prenom, d.typedoc, d.statut
-        FROM demande d
-        JOIN etudiant e ON d.ide = e.ide
-        WHERE (e.nom LIKE :search OR e.prenom LIKE :search OR d.typedoc LIKE :search OR d.statut LIKE :search)";
-
-if ($filterStatut) {
-    $sql .= " AND d.statut = :filterStatut";
-}
-if ($filterTypeDoc) {
-    $sql .= " AND d.typedoc = :filterTypeDoc";
-}
-
-$stmt = $conn->prepare($sql);
-$stmtParams = ['search' => '%' . $searchQuery . '%'];
-
-if ($filterStatut) {
-    $stmtParams['filterStatut'] = $filterStatut;
-}
-if ($filterTypeDoc) {
-    $stmtParams['filterTypeDoc'] = $filterTypeDoc;
-}
-
-$stmt->execute($stmtParams);
-$demandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$orderBy = isset($_GET['order_by']) ? $_GET['order_by'] : 'iddoc';
-$orderType = isset($_GET['order_type']) ? $_GET['order_type'] : 'ASC';
-
-$validOrderColumns = ['iddoc', 'ide', 'nom', 'prenom', 'typedoc', 'statut'];
-if (!in_array($orderBy, $validOrderColumns)) {
-    $orderBy = 'iddoc';
-}
-$orderType = ($orderType === 'DESC') ? 'DESC' : 'ASC';
-
-$sql .= " ORDER BY $orderBy $orderType";
-
-$stmt = $conn->prepare($sql);
-$stmt->execute($stmtParams);
-$demandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$demandes = $demande->rechercherDemandes($searchQuery, $filterStatut, $filterTypeDoc, $orderBy, $orderType);
 ?>
 
 <!DOCTYPE html>
@@ -135,21 +89,12 @@ $demandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table class="table table-bordered" id="demandes-table">
             <thead>
                 <tr>
-                    <th style="background-color: darkblue; color: white;">
-                    <a href="?search=<?= urlencode($searchQuery) ?>&filter_statut=<?= urlencode($filterStatut) ?>&filter_type=<?= urlencode($filterTypeDoc) ?>&order_by=ide&order_type=<?= $orderBy == 'ide' && $orderType == 'ASC' ? 'DESC' : 'ASC' ?>" class="text-white">
-                    <?php if ($orderBy == 'ide'): ?>
-                        <i class="fas <?= $orderType == 'ASC' ? 'fa-sort-up' : 'fa-sort-down' ?>"></i>
-                    <?php else: ?>
-                        <i class="fas fa-sort"></i>
-                    <?php endif; ?>
-                    Matricule Étudiant
-                </a>
-                    </th>
-                    <th style="background-color: darkblue; color: white;">Nom</th>
-                    <th style="background-color: darkblue; color: white;">Prénom</th>
-                    <th style="background-color: darkblue; color: white;">Type de Document</th>
-                    <th style="background-color: darkblue; color: white;">Statut</th>
-                    <th style="background-color: darkblue; color: white;">Actions</th>
+                    <th><a href="?search=<?= urlencode($searchQuery) ?>&filter_statut=<?= urlencode($filterStatut) ?>&filter_type=<?= urlencode($filterTypeDoc) ?>&order_by=ide&order_type=<?= $orderBy == 'ide' && $orderType == 'ASC' ? 'DESC' : 'ASC' ?>">Matricule Étudiant</a></th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Type de Document</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
