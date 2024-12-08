@@ -12,9 +12,9 @@
     <header>
         <nav>  
             <ul>
-                <li><button>Etudiants</button></li>
-                <li><button>Administrateurs</button></li>
-                <li><button>Contact de l'universite</button></li>
+                <li><button><a href="#etd">Etudiants</a></button></li>
+                <li><button><a href="#adm">Administrateurs</a></button></li>
+                <li><button><a href="#ftr">Contact de l'universite</a></button></li>
             </ul>
         </nav>
 
@@ -38,7 +38,7 @@
         </section>
     </main>
     
-    <footer>
+    <footer id="ftr">
         <p>© 2024 Université - Tous droits réservés</p>
         <p>Contactez-nous : <a href="mailto:contact@universite.com">contact@universite.com</a></p>
     </footer>
