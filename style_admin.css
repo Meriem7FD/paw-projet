@@ -1,0 +1,186 @@
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style général du corps */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Couleur de fond légèrement grise */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+/* Header */
+header {
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header img {
+    height: 80%;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Section principale */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: darkblue;
+}
+
+/* Formulaire d'action */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Barre de recherche */
+.form-search {
+    margin-bottom: 20px;
+}
+
+.form-search input[type="text"] {
+    width: 100%; /* Remplir la largeur disponible */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-search button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-search button:hover {
+    background-color: #0056b3;
+}
+
+/* Filtrage */
+.form-filter {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-filter select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.form-filter button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-filter button:hover {
+    background-color: #218838;
+}
+
+/* Messages de feedback */
+p {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style pour le tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+}
+
+th {
+    background-color: darkblue; /* Couleur de fond du header */
+    color: white; /* Couleur du texte en blanc */
+}
+
+td {
+    background-color: #f8f9fa; /* Couleur de fond claire pour les cellules */
+}
+
+th a {
+    text-decoration: none;
+}
+
+/* Ajout d'une couleur de fond pour les lignes du tableau */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Couleur alternée pour les lignes paires */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Couleur alternée pour les lignes impaires */
+}
+
+/* Style de survol de ligne */
+tbody tr:hover {
+    background-color: #ddd; /* Couleur de survol */
+}
+
+.d-flex {
+    width: 50%;
+}
