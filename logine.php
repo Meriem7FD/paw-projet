@@ -1,29 +1,27 @@
 <?php
-session_start();
-require 'Database.php';
-require 'Etudiant.php';
+// Inclure les fichiers nécessaires
+require_once 'Database.php';
+require_once 'Etudiant.php';
 
-// Créer une instance de la connexion à la base de données
-$db = new Database();
-$conn = $db->getConnection();
+// Initialiser le message d'erreur
+$error_message = '';
 
-// Créer une instance de la classe Etudiant
-$etudiant = new Etudiant($conn);
-
-$error_message = "";
-
-// Vérifier si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupérer les données du formulaire
     $matricule = $_POST['matricule'];
     $password = $_POST['password'];
 
+    // Connexion à la base de données
+    $db = new Database();
+    $conn = $db->connect();
+
     // Vérifier les identifiants
+    $etudiant = new Etudiant($conn);
     $result = $etudiant->verifierIdentifiants($matricule, $password);
 
     if ($result) {
-        // Connexion réussie
-        $_SESSION['matricule'] = $result['ide'];
-        header("Location: etud.php");
+        // Identifiants corrects, redirection vers etude.php
+        header('Location: etud.php');
         exit();
     } else {
         // Identifiants incorrects
@@ -49,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <main>
         <section class="login">
             <h2>Portail Étudiant</h2>
-            <form action="login.php" method="post">
+            <form action="logine.php" method="post">
                 <div class="form-group">
                     <label for="matricule">Matricule</label>
                     <input type="text" class="form-control" name="matricule" id="matricule" placeholder="Insérez votre matricule" required>
@@ -64,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     echo '<div class="alert alert-danger mt-3">' . $error_message . '</div>';
                 }
                 ?>
-                <p class="mt-3">Vous n'avez pas encore de compte ? <a href="signup.php">Créez-en un</a></p>
+                <p class="mt-3">Vous n'avez pas encore de compte ? <a href="signupE.php">Créez-en un</a></p>
             </form>
         </section>
     </main>
