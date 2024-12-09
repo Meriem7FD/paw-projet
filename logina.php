@@ -1,29 +1,27 @@
 <?php
-session_start();
-require 'Database.php';
-require 'Administrateur.php';
+// Inclure les fichiers nécessaires
+require_once 'Database.php';
+require_once 'Administrateur.php';
 
-// Créer une instance de la connexion à la base de données
-$db = new Database();
-$conn = $db->getConnection();
+// Initialiser le message d'erreur
+$error_message = '';
 
-// Créer une instance de la classe Administrateur
-$admin = new Administrateur($conn);
-
-$error_message = "";
-
-// Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupérer les données du formulaire
     $matricule = $_POST['matricule'];
     $password = $_POST['password'];
 
+    // Connexion à la base de données
+    $db = new Database();
+    $conn = $db->connect();
+
     // Vérifier les identifiants
+    $admin = new Administrateur($conn);
     $result = $admin->verifierIdentifiants($matricule, $password);
 
-    if ($result) {
-        // Connexion réussie
-        $_SESSION['admin'] = $result['ida']; // Stocker l'IDA dans la session
-        header('Location: admin.php'); // Rediriger vers la page des étudiants
+    if ($result && password_verify($password, $result['motdepasse'])) {
+        // Identifiants corrects, redirection vers admin.php
+        header('Location: admin.php');
         exit();
     } else {
         // Identifiants incorrects
@@ -49,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <section class="login">
             <h2>Portail Administrateur</h2>
-            <form action="login.php" method="post">
+            <form action="logina.php" method="post">
                 <div class="form-group">
                     <label for="matricule">Matricule</label>
                     <input type="text" class="form-control" name="matricule" id="matricule" placeholder="Insérez votre matricule" required>
