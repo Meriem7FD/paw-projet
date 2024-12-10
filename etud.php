@@ -38,10 +38,22 @@
                         <div class="form-group">
                             <label for="type_document">Sélectionner le type de document</label>
                             <select class="form-control" id="type_document" name="type_document" required>
-                                <option value="">Choisir...</option>
-                                <?php foreach ($typesDocuments as $document): ?>
-                                    <option value="<?= htmlspecialchars($document); ?>"><?= htmlspecialchars($document); ?></option>
-                                <?php endforeach; ?>
+                               <option value="">Choisir...</option>
+                               <option value="Certificat de scolarite">Certificat de scolarite</option>
+                               <option value="Releve de note">Relevé de note</option>
+                               <option value="Attestation inscription">Attestation d'inscription</option>
+                               <option value="Attestation de bonne conduite">Attestation de bonne conduite</option>
+                               <option value="Dossier academique complet">Dossier académique complet</option>
+                               <option value="Justification de stage">Justification de stage</option>
+                               <option value="Attestation de diplome de master">Attestation de diplôme de master</option>
+                               <option value="Attestation de diplome de licence">Attestation de diplôme de licence</option>
+                               <option value="Certificat de non inscription">Certificat de non-inscription</option>
+                               <option value="Attestation de validation annee">Attestation de validation d'année</option>
+                               <option value="Attestation de reussite">Attestation de réussite</option>
+                               
+                               <?php foreach ($typesDocuments as $document): ?>
+                                   <option value="<?= htmlspecialchars($document); ?>"><?= htmlspecialchars($document); ?></option>
+                               <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="modal-footer">
